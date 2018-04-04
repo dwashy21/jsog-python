@@ -78,7 +78,7 @@ def decode(encoded):
 			if '@id' in encoded:
 				found[encoded['@id']] = result
 
-			for key, value in encoded.iteritems():
+			for key, value in encoded.items():
 				if key != '@id':
 					result[key] = firstPassDecode(value)
 
@@ -96,7 +96,7 @@ def decode(encoded):
 
 	def deref(withRefs):
 		if isinstance(withRefs, dict):
-			for key, value in withRefs.iteritems():
+			for key, value in withRefs.items():
 				if isinstance(value, dict) and '@ref' in value:
 					withRefs[key] = found[value['@ref']]
 				else:
